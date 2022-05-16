@@ -2,7 +2,7 @@ group: container
 script:
   - curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
   - helm version
-  - helm lint chart
+  - helm lint chart/armo-components
   - helm package charts/armo-components --version 0.1.${TRAVIS_BUILD_NUMBER}
   - configure_jfrog_client
   - jfrog rt u "*.tgz" helm-local/developer-foundations/ && echo "Uploaded chart successful" || echo "Uploading of chart failed"
